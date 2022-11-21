@@ -4,6 +4,7 @@ import (
 	"log"
 
 	"go-admin/src/database"
+	"go-admin/src/events"
 	"go-admin/src/routes"
 	"go-admin/src/services"
 
@@ -16,6 +17,7 @@ func main() {
 	database.AutoMigrate()
     app := fiber.New()
 	services.Setup()
+	events.SetupProducer()
 
 	app.Use(cors.New(cors.Config{
 		AllowCredentials: true,
