@@ -1,0 +1,31 @@
+version: '3.9'
+services:
+  admin_backend:
+    build: .
+    ports:
+      - 8002:8000
+    volumes:
+      - .:/app
+    depends_on:
+      - admin_db
+    networks:
+      - admin
+      - users
+
+  admin_db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_DATABASE: admin
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - .dbdata:/var/lib/mysql
+    networks:
+      - admin
+
+networks:
+  users:
+    external:
+      name: users
+  admin:
