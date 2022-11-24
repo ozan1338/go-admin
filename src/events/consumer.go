@@ -1,7 +1,6 @@
 package events
 
 import (
-	"encoding/json"
 	"fmt"
 
 	"github.com/confluentinc/confluent-kafka-go/kafka"
@@ -36,8 +35,7 @@ func Consumer() {
 		}
 
 		fmt.Printf("Message on %s: %s\n", msg.TopicPartition, string(msg.Value))
-		var message map[string]interface{}
-
-		json.Unmarshal(msg.Value, &message)
+		
+		Listen(msg)
 	}
 }
