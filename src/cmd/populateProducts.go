@@ -1,26 +1,26 @@
 package main
 
-import (
-	"go-admin/src/database"
-	"go-admin/src/models"
+// import (
+// 	"go-admin/src/database"
+// 	"go-admin/src/models"
 
-	"gorm.io/driver/mysql"
-	"gorm.io/gorm"
-)
+// 	"gorm.io/driver/mysql"
+// 	"gorm.io/gorm"
+// )
 
-func main() {
-	database.Connect()
-	db, err := gorm.Open(mysql.Open("root:root@tcp(host.docker.internal:33066)/ambassador"), &gorm.Config{})
+// func main() {
+// 	database.Connect()
+// 	db, err := gorm.Open(mysql.Open("root:root@tcp(host.docker.internal:33066)/ambassador"), &gorm.Config{})
 
-	if err != nil {
-		panic(err)
-	}
+// 	if err != nil {
+// 		panic(err)
+// 	}
 
-	var products []models.Product
+// 	var products []models.Product
 
-	db.Find(&products)
+// 	db.Find(&products)
 
-	for _, product := range products {
-		database.DB.Create(&product)
-	}
-}
+// 	for _, product := range products {
+// 		database.DB.Create(&product)
+// 	}
+// }
