@@ -20,5 +20,5 @@ func Connect() {
 }
 
 func AutoMigrate() {
-	DB.AutoMigrate(models.Link{},models.Order{},models.OrderItem{},models.Product{})
+	DB.AutoMigrate(models.Link{},models.Order{},models.OrderItem{},models.Product{},models.KafkaError{})
 }
